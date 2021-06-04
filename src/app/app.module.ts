@@ -5,9 +5,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
+import { ItemsComponent } from './items/items.component';
+import { ItemComponent } from './item/item.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, ItemsComponent, ItemComponent],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],
   bootstrap: [AppComponent],
