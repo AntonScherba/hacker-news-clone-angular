@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Items, ItemsService } from '../services/items.service';
+import { Item, ItemsService } from '../services/items.service';
 
 @Component({
   selector: 'app-items',
@@ -7,7 +7,7 @@ import { Items, ItemsService } from '../services/items.service';
   styleUrls: ['./items.component.css'],
 })
 export class ItemsComponent implements OnInit {
-  items: Items[] = [];
+  items: Item[] = [];
 
   constructor(private itemsService: ItemsService) {}
 
