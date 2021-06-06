@@ -1,4 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
+
+import { Comment, ItemsService } from '../services/items.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -7,11 +12,23 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
-  public id: string;
+  treeControl = new NestedTreeControl<Comment>((node) => node.children);
+  dataSource = new MatTreeNestedDataSource<Comment>();
 
-  constructor(private activatedRoute: ActivatedRoute) {}
+  constructor(
+    private itemsService: ItemsService,
+    private activatedRoute: ActivatedRoute
+  ) {}
 
   ngOnInit(): void {
-    this.id = this.activatedRoute.snapshot.params.id;
+    this.itemsService
+      .getItemById(this.activatedRoute.snapshot.params.id)
+      .subscribe((data: any) => {
+        console.log(data);
+        this.dataSource.data = data.children;
+      });
   }
+
+  hasChild = (_: number, node: Comment) =>
+    !!node.children && node.children.length > 0;
 }
