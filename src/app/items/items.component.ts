@@ -14,7 +14,6 @@ export class ItemsComponent implements OnInit {
   ngOnInit(): void {
     this.itemsService.getItems().subscribe((response: any) => {
       this.items = response.hits;
-      console.log(this.items);
     });
   }
 }
