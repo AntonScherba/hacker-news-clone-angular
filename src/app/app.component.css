@@ -5,13 +5,13 @@
   height: 100%;
 }
 
-.contant {
+.content {
   width: 1200px;
 }
 
 /* Large Smartphone (Vertical) */
 @media screen and (max-width: 1200px) {
-  .contant {
+  .content {
     width: 100%;
   }
 }

@@ -7,3 +7,24 @@
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
+
+mat-card-title a {
+  color: black;
+}
+
+a:link {
+  color: rgba(0, 0, 0, 0.54);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:active {
+  color: black;
+}
+
+a:visited {
+  color: rgba(0, 0, 0, 0.54);
+}
