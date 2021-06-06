@@ -1,1 +1,12 @@
-<p>items works!</p>
+<mat-card class="card" *ngFor="let item of items">
+  <mat-card-header>
+    <mat-card-title>{{ item.title }}</mat-card-title>
+    <mat-card-subtitle
+      >{{ item.num_comments }} comments | {{ item.points }} points |
+      {{ item.author }} author</mat-card-subtitle
+    >
+  </mat-card-header>
+  <mat-card-actions>
+    <a mat-stroked-button href="{{ item.url }}" target="_blank">Read more</a>
+  </mat-card-actions>
+</mat-card>

@@ -6,6 +6,11 @@ import { ItemsComponent } from './items/items.component';
 const routes: Routes = [
   {
     path: '',
+    pathMatch: 'full',
+    redirectTo: 'items',
+  },
+  {
+    path: 'items',
     component: ItemsComponent,
   },
   {
