@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { delay } from 'rxjs/operators';
 import { LoadingService } from './services/loading.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -22,6 +24,7 @@ export class AppComponent implements OnInit {
   listenToLoading(): void {
     this.loadingService.loadingSub
       .pipe(delay(0)) // This prevents a ExpressionChangedAfterItHasBeenCheckedError for subsequent requests
+      .pipe(untilDestroyed(this))
       .subscribe((loading) => {
         this.isLoading = loading;
       });

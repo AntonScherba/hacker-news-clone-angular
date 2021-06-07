@@ -1,0 +1,21 @@
+<mat-card class="card">
+  <mat-card-header>
+    <mat-card-title>
+      <a *ngIf="url" [href]="url" target="_blank" title="Read more"
+        >{{ title }}
+      </a>
+      <span *ngIf="!url">{{ title }}</span>
+    </mat-card-title>
+    <!-- true -> for main page-->
+    <mat-card-subtitle *ngIf="!isHideCommentNum">
+      <a [routerLink]="['/item/', id]"
+        >{{ commentsNum }} {{ commentsNum == 1 ? "comment" : "comments" }}</a
+      >
+      | {{ points }} points | {{ author }}
+    </mat-card-subtitle>
+    <!-- false -> for comment page -->
+    <mat-card-subtitle *ngIf="isHideCommentNum">
+      {{ points }} points | {{ author }}
+    </mat-card-subtitle>
+  </mat-card-header>
+</mat-card>

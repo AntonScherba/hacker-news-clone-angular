@@ -1,4 +1,18 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
+<app-news
+  [id]="comments?.id"
+  [title]="comments?.title"
+  [url]="comments?.url"
+  [author]="comments?.author"
+  [points]="comments?.points"
+  [isHideCommentNum]="true"
+></app-news>
+
+<!-- Comments tree -->
+<mat-tree
+  [dataSource]="comments?.children"
+  [treeControl]="treeControl"
+  class="tree"
+>
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
     <mat-card>
       <mat-card-subtitle
@@ -22,8 +36,8 @@
             <mat-icon class="mat-icon-rtl-mirror">
               {{ treeControl.isExpanded(node) ? "add" : "remove" }}
             </mat-icon>
-          </button></mat-card-subtitle
-        >
+          </button>
+        </mat-card-subtitle>
         <mat-card-content [innerHTML]="node.text"> </mat-card-content>
       </mat-card>
     </div>

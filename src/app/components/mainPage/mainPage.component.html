@@ -1,0 +1,18 @@
+<app-news
+  *ngFor="let news of page?.hits"
+  [id]="news.objectID"
+  [title]="news.title"
+  [url]="news.url"
+  [author]="news.author"
+  [points]="news.points"
+  [commentsNum]="news.num_comments"
+  [isHideCommentNum]="!!!news.num_comments"
+></app-news>
+<mat-paginator
+  [length]="page?.nbHits"
+  [pageSize]="page?.hitsPerPage"
+  [pageIndex]="page?.page"
+  [pageSizeOptions]="[5, 10, 15, 30]"
+  (page)="onPageChange($event)"
+>
+</mat-paginator>

@@ -8,21 +8,25 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTreeModule } from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatPaginatorModule } from '@angular/material/paginator';
 
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ItemsComponent } from './items/items.component';
-import { ItemComponent } from './item/item.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { MainPageComponent } from './components/mainPage/mainPage.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
+
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    ItemsComponent,
-    ItemComponent,
+    MainPageComponent,
+    CommentsComponent,
     NavigationComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,
@@ -34,6 +38,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     MatTreeModule,
     MatIconModule,
     MatProgressSpinnerModule,
+    MatPaginatorModule,
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: LoaderInterceptor, multi: true },

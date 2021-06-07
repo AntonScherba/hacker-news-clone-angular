@@ -29,7 +29,6 @@ export class LoaderInterceptor implements HttpInterceptor {
       )
       .pipe(
         map<HttpEvent<any>, any>((evt: HttpEvent<any>) => {
-          console.log(evt);
           if (evt instanceof HttpResponse) {
             this.loadingService.setLoading(false, request.url);
           }
