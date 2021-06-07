@@ -6,10 +6,10 @@ import { HackerNewsService } from '../../services/hacker-news.service';
 
 @Component({
   selector: 'app-items',
-  templateUrl: './items.component.html',
-  styleUrls: ['./items.component.css'],
+  templateUrl: './mainPage.component.html',
+  styleUrls: ['./mainPage.component.css'],
 })
-export class ItemsComponent implements OnInit {
+export class MainPageComponent implements OnInit {
   currentPage: number = 0;
   limit: number = 10;
   page: Page;

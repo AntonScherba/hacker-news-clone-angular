@@ -13,7 +13,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ItemsComponent } from './components/items/items.component';
+import { MainPageComponent } from './components/mainPage/mainPage.component';
 import { CommentsComponent } from './components/comments/comments.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
@@ -23,7 +23,7 @@ import { NewsComponent } from './components/news/news.component';
 @NgModule({
   declarations: [
     AppComponent,
-    ItemsComponent,
+    MainPageComponent,
     CommentsComponent,
     NavigationComponent,
     NewsComponent,
