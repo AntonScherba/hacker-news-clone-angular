@@ -3,7 +3,7 @@
     <mat-card>
       <mat-card-subtitle
         >{{ node.author }} |
-        {{ node.created_at | date: "MM/dd/yy, h:mm a" }}</mat-card-subtitle
+        {{ node.created_at | date: "dd-MM-yy, hh:mm a" }}</mat-card-subtitle
       >
       <mat-card-content [innerHTML]="node.text"> </mat-card-content>
     </mat-card>
@@ -13,7 +13,7 @@
     <div class="mat-tree-node">
       <mat-card>
         <mat-card-subtitle
-          >{{ node.author }} | {{ node.created_at | date: "MM/dd/yy, h:mm a" }}
+          >{{ node.author }} | {{ node.created_at | date: "dd-MM-yy, h:mm a" }}
           <button
             mat-icon-button
             matTreeNodeToggle

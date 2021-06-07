@@ -24,7 +24,6 @@ export class ItemComponent implements OnInit {
     this.itemsService
       .getItemById(this.activatedRoute.snapshot.params.id)
       .subscribe((data: any) => {
-        console.log(data);
         this.dataSource.data = data.children;
       });
   }
