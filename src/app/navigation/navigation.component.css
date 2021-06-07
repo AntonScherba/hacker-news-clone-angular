@@ -1,0 +1,14 @@
+.navigation-items {
+  display: flex;
+  justify-content: center;
+}
+
+.clickable {
+  color: dodgerblue;
+  cursor: pointer;
+  user-select: none;
+}
+
+.clickable:hover {
+  color: rgb(0, 99, 199);
+}

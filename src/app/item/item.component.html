@@ -1,0 +1,35 @@
+<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
+  <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
+    <mat-card>
+      <mat-card-subtitle
+        >{{ node.author }} |
+        {{ node.created_at | date: "dd-MM-yy, hh:mm a" }}</mat-card-subtitle
+      >
+      <mat-card-content [innerHTML]="node.text"> </mat-card-content>
+    </mat-card>
+  </mat-tree-node>
+
+  <mat-nested-tree-node *matTreeNodeDef="let node; when: hasChild">
+    <div class="mat-tree-node">
+      <mat-card>
+        <mat-card-subtitle
+          >{{ node.author }} | {{ node.created_at | date: "dd-MM-yy, h:mm a" }}
+          <button
+            mat-icon-button
+            matTreeNodeToggle
+            [attr.aria-label]="'Toggle ' + node.name"
+          >
+            <mat-icon class="mat-icon-rtl-mirror">
+              {{ treeControl.isExpanded(node) ? "add" : "remove" }}
+            </mat-icon>
+          </button></mat-card-subtitle
+        >
+        <mat-card-content [innerHTML]="node.text"> </mat-card-content>
+      </mat-card>
+    </div>
+
+    <div [class.tree-invisible]="treeControl.isExpanded(node)" role="group">
+      <ng-container matTreeNodeOutlet></ng-container>
+    </div>
+  </mat-nested-tree-node>
+</mat-tree>

@@ -1,0 +1,16 @@
+.tree {
+  margin: 10px 10px 20px;
+}
+
+.tree-invisible {
+  display: none;
+}
+
+.tree .mat-nested-tree-node div[role="group"] {
+  padding-left: 40px;
+}
+
+mat-card {
+  margin: 0 0px 10px;
+  border-radius: 0;
+}
