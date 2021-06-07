@@ -11,7 +11,7 @@ export interface Item {
   num_comments: number;
 }
 
-export interface Hits {
+export interface Page {
   hits: Item[];
   page: number;
   nbHits: number;
@@ -39,8 +39,8 @@ export class ItemsService {
 
   constructor(private http: HttpClient) {}
 
-  public getItems() {
-    let url = `${this.baseUrl}search?tags=front_page`;
+  public getItems(page: number) {
+    let url = `${this.baseUrl}search?tags=front_page&page=${page}`;
     return this.http.get(url);
   }
 

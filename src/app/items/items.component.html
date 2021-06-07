@@ -1,11 +1,23 @@
-<mat-card class="card" *ngFor="let item of items">
-  <mat-card-title>
-    <a href="{{ item.url }}" target="_blank">{{ item.title }}</a>
-  </mat-card-title>
-  <mat-card-subtitle>
-    <a [routerLink]="['/item/', item.objectID]"
-      >{{ item.num_comments }} comments</a
+<mat-card class="card" *ngFor="let item of page.hits">
+  <mat-card-header>
+    <mat-card-title>
+      <a *ngIf="item.url" [href]="item.url" target="_blank" title="Read more">{{
+        item.title
+      }}</a>
+      <span *ngIf="!item.url">{{ item.title }}</span>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <a [routerLink]="['/item/', item.objectID]" title="Read comments"
+        >{{ item.num_comments }} comments</a
+      >
+      | {{ item.points }} points | {{ item.author }}</mat-card-subtitle
     >
-    | {{ item.points }} points | {{ item.author }}</mat-card-subtitle
-  >
+  </mat-card-header>
 </mat-card>
+<mat-paginator
+  [length]="page.nbHits"
+  [pageSize]="page.hitsPerPage"
+  [hidePageSize]="true"
+  (page)="onClick($event.pageIndex)"
+>
+</mat-paginator>
