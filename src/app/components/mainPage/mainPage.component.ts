@@ -3,7 +3,9 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { switchMap } from 'rxjs/operators';
 import { Page } from 'src/app/models/page';
 import { HackerNewsService } from '../../services/hacker-news.service';
+import { UntilDestroy, untilDestroyed } from '@ngneat/until-destroy';
 
+@UntilDestroy()
 @Component({
   selector: 'app-items',
   templateUrl: './mainPage.component.html',
@@ -29,6 +31,7 @@ export class MainPageComponent implements OnInit {
           return this.itemsService.getPage(this.currentPage, this.limit);
         })
       )
+      .pipe(untilDestroyed(this))
       .subscribe((data: Page) => (this.page = data));
   }
 
