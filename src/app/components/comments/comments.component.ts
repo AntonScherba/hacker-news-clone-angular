@@ -3,20 +3,20 @@ import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { Comment, ItemsService } from '../services/items.service';
+import { Comment, HackerNewsService } from '../../services/hacker-news.service';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-item',
-  templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css'],
+  templateUrl: './comments.component.html',
+  styleUrls: ['./comments.component.css'],
 })
-export class ItemComponent implements OnInit {
+export class CommentsComponent implements OnInit {
   treeControl = new NestedTreeControl<Comment>((node) => node.children);
   dataSource = new MatTreeNestedDataSource<Comment>();
 
   constructor(
-    private itemsService: ItemsService,
+    private itemsService: HackerNewsService,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -28,6 +28,8 @@ export class ItemComponent implements OnInit {
       });
   }
 
-  hasChild = (_: number, node: Comment) =>
-    !!node.children && node.children.length > 0;
+  hasChild = (_: number, node: Comment) => {
+    console.log(node.children);
+    return !!node.children && node.children.length > 0;
+  };
 }

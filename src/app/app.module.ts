@@ -13,9 +13,9 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
-import { ItemsComponent } from './items/items.component';
-import { ItemComponent } from './item/item.component';
-import { NavigationComponent } from './navigation/navigation.component';
+import { ItemsComponent } from './components/items/items.component';
+import { CommentsComponent } from './components/comments/comments.component';
+import { NavigationComponent } from './components/navigation/navigation.component';
 
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
 
@@ -23,7 +23,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
   declarations: [
     AppComponent,
     ItemsComponent,
-    ItemComponent,
+    CommentsComponent,
     NavigationComponent,
   ],
   imports: [

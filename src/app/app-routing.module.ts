@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { ItemsComponent } from './items/items.component';
+import { ItemsComponent } from './components/items/items.component';
 
 const routes: Routes = [
   {
@@ -15,7 +15,10 @@ const routes: Routes = [
   },
   {
     path: 'item',
-    loadChildren: () => import('./item/item.module').then((m) => m.ItemModule),
+    loadChildren: () =>
+      import('./components/comments/comments.module').then(
+        (m) => m.CommentsModule
+      ),
   },
 ];
 

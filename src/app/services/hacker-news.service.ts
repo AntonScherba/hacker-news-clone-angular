@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
-export interface Item {
+export interface News {
   objectID: number;
   title: string;
   url: string;
@@ -12,7 +12,7 @@ export interface Item {
 }
 
 export interface Page {
-  hits: Item[];
+  hits: News[];
   page: number;
   nbHits: number;
   nbPages: number;
@@ -34,7 +34,7 @@ export interface Comment {
 @Injectable({
   providedIn: 'root',
 })
-export class ItemsService {
+export class HackerNewsService {
   private baseUrl = environment.apiUrl;
 
   constructor(private http: HttpClient) {}

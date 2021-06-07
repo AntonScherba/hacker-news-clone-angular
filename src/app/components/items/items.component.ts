@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { switchMap, tap } from 'rxjs/operators';
-import { Page, ItemsService } from '../services/items.service';
+import { switchMap } from 'rxjs/operators';
+import { Page, HackerNewsService } from '../../services/hacker-news.service';
 
 @Component({
   selector: 'app-items',
@@ -15,7 +15,7 @@ export class ItemsComponent implements OnInit {
   limit: number = 10;
 
   constructor(
-    private itemsService: ItemsService,
+    private itemsService: HackerNewsService,
     private activatedRoute: ActivatedRoute,
     private router: Router
   ) {}
@@ -39,6 +39,5 @@ export class ItemsComponent implements OnInit {
         limit: event.pageSize,
       },
     });
-    console.log(event);
   }
 }
