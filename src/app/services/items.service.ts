@@ -39,8 +39,8 @@ export class ItemsService {
 
   constructor(private http: HttpClient) {}
 
-  public getItems(page: number) {
-    let url = `${this.baseUrl}search?tags=front_page&page=${page}`;
+  public getItems(page: number, limit: number) {
+    let url = `${this.baseUrl}search?tags=front_page&page=${page}&hitsPerPage=${limit}`;
     return this.http.get(url);
   }
 

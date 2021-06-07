@@ -1,9 +1,9 @@
-<mat-card class="card" *ngFor="let item of page.hits">
+<mat-card class="card" *ngFor="let item of page?.hits">
   <mat-card-header>
     <mat-card-title>
-      <a *ngIf="item.url" [href]="item.url" target="_blank" title="Read more">{{
-        item.title
-      }}</a>
+      <a *ngIf="item.url" [href]="item.url" target="_blank" title="Read more"
+        >{{ item.title }}
+      </a>
       <span *ngIf="!item.url">{{ item.title }}</span>
     </mat-card-title>
     <mat-card-subtitle>
@@ -14,10 +14,12 @@
     >
   </mat-card-header>
 </mat-card>
+
 <mat-paginator
-  [length]="page.nbHits"
-  [pageSize]="page.hitsPerPage"
-  [hidePageSize]="true"
-  (page)="onClick($event.pageIndex)"
+  [length]="page?.nbHits"
+  [pageSize]="page?.hitsPerPage"
+  [pageIndex]="page?.page"
+  [pageSizeOptions]="[5, 10, 15, 30]"
+  (page)="onPageChange($event)"
 >
 </mat-paginator>

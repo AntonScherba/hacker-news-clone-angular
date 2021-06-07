@@ -11,7 +11,8 @@ import { Page, ItemsService } from '../services/items.service';
 export class ItemsComponent implements OnInit {
   page: Page;
 
-  currentPage: number;
+  currentPage: number = 0;
+  limit: number = 10;
 
   constructor(
     private itemsService: ItemsService,
@@ -24,21 +25,18 @@ export class ItemsComponent implements OnInit {
       .pipe(
         switchMap((params) => {
           this.currentPage = +params.p - 1 || 0;
-          return this.itemsService.getItems(this.currentPage);
+          this.limit = params.limit || 10;
+          return this.itemsService.getItems(this.currentPage, this.limit);
         })
       )
-      .pipe()
       .subscribe((data: Page) => (this.page = data));
-
-    // this.itemsService.getItems(0).subscribe((response: Page) => {
-    //   this.page = response;
-    // });
   }
 
-  onClick(event: any) {
+  onPageChange(event: any) {
     this.router.navigate(['items'], {
       queryParams: {
-        p: event + 1,
+        p: event.pageIndex + 1,
+        limit: event.pageSize,
       },
     });
     console.log(event);
