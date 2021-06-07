@@ -18,6 +18,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { NavigationComponent } from './components/navigation/navigation.component';
 
 import { LoaderInterceptor } from './interceptors/loader.interceptor';
+import { NewsComponent } from './components/news/news.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { LoaderInterceptor } from './interceptors/loader.interceptor';
     ItemsComponent,
     CommentsComponent,
     NavigationComponent,
+    NewsComponent,
   ],
   imports: [
     BrowserModule,

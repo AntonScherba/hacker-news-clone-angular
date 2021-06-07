@@ -1,4 +1,18 @@
-<mat-tree [dataSource]="dataSource" [treeControl]="treeControl" class="tree">
+<app-news
+  [id]="comments?.id"
+  [title]="comments?.title"
+  [url]="comments?.url"
+  [author]="comments?.author"
+  [points]="comments?.points"
+  [isHideCommentNum]="true"
+></app-news>
+
+<!-- Comments tree -->
+<mat-tree
+  [dataSource]="comments?.children"
+  [treeControl]="treeControl"
+  class="tree"
+>
   <mat-tree-node *matTreeNodeDef="let node" matTreeNodeToggle>
     <mat-card>
       <mat-card-subtitle

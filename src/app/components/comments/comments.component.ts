@@ -3,8 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-import { Comment, HackerNewsService } from '../../services/hacker-news.service';
+import { HackerNewsService } from '../../services/hacker-news.service';
 import { ActivatedRoute } from '@angular/router';
+import { Comment } from 'src/app/models/comment';
 
 @Component({
   selector: 'app-item',
@@ -12,8 +13,10 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./comments.component.css'],
 })
 export class CommentsComponent implements OnInit {
-  treeControl = new NestedTreeControl<Comment>((node) => node.children);
-  dataSource = new MatTreeNestedDataSource<Comment>();
+  treeControl = new NestedTreeControl<any>((node) => node.children);
+  dataSource = new MatTreeNestedDataSource<any>();
+
+  comments: Comment;
 
   constructor(
     private itemsService: HackerNewsService,
@@ -22,14 +25,13 @@ export class CommentsComponent implements OnInit {
 
   ngOnInit(): void {
     this.itemsService
-      .getItemById(this.activatedRoute.snapshot.params.id)
+      .getComments(this.activatedRoute.snapshot.params.id)
       .subscribe((data: any) => {
-        this.dataSource.data = data.children;
+        // this.dataSource.data = data.children;
+        this.comments = data;
       });
   }
 
-  hasChild = (_: number, node: Comment) => {
-    console.log(node.children);
-    return !!node.children && node.children.length > 0;
-  };
+  hasChild = (_: number, node: Comment) =>
+    !!node.children && node.children.length > 0;
 }
