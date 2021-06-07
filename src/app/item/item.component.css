@@ -10,10 +10,7 @@
   padding-left: 40px;
 }
 
-.tree div[role="group"] > .mat-tree-node {
-  padding-left: 40px;
-}
-
 mat-card {
-  margin: 10px 10px;
+  margin: 0 0px 10px;
+  border-radius: 0;
 }

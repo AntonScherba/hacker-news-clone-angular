@@ -1,3 +1,10 @@
+<!-- loader -->
+<div *ngIf="isLoading" class="loader">
+  <mat-progress-spinner color="primary" mode="indeterminate">
+  </mat-progress-spinner>
+</div>
+
+<!-- the application -->
 <div class="container">
   <app-navigation></app-navigation>
   <div class="content">
