@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.1.
 
-[Live Demo](http://github.com)
+[Live Demo](https://antonscherba.github.io/hacker-news-clone-angular/)
 
 ## Setup
 
