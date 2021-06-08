@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
+<<<<<<< HEAD
 import { MainPageComponent } from './components/mainPage/mainPage.component';
 
 const routes: Routes = [
@@ -21,9 +22,12 @@ const routes: Routes = [
       ),
   },
 ];
+=======
+const routes: Routes = [];
+>>>>>>> master
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
-export class AppRoutingModule {}
+export class AppRoutingModule { }
